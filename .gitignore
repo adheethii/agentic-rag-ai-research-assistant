@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+data/documents/
+data/vector_store/
+data/database/
+.env
+*.db
+*.faiss
+*.pkl
