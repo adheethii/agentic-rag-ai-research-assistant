@@ -3,6 +3,17 @@
 A powerful, locally-running AI research assistant built with **LangChain**, **Ollama**, and **Streamlit**. It combines Retrieval-Augmented Generation (RAG) with agentic tool use — letting you query your own documents, summarize them, and search the web, all from a sleek dark-themed UI.
 
 ---
+
+## ✨ Features
+
+- 📄 **Document Q&A** — Upload PDFs and ask questions grounded in your documents
+- 📑 **Document Summarization** — Auto-summarize uploaded documents using LLM
+- 🌐 **Web Search Mode** — Search the web and get AI-synthesized answers
+- 🧠 **Hybrid Retrieval** — Combines vector search with reranking for accurate context
+- 🗂️ **Conversation History** — Tracks your queries within the session
+- 🖥️ **Fully Local** — Runs on your machine using Ollama (no OpenAI API needed)
+
+---
 ## 📸 Screenshots
  
 ### 🏠 Home Page
@@ -15,15 +26,9 @@ A powerful, locally-running AI research assistant built with **LangChain**, **Ol
 ![Web Search](images/web%20search.png)
 
 ---
+## 🏗️ Architecture
 
-## ✨ Features
-
-- 📄 **Document Q&A** — Upload PDFs and ask questions grounded in your documents
-- 📑 **Document Summarization** — Auto-summarize uploaded documents using LLM
-- 🌐 **Web Search Mode** — Search the web and get AI-synthesized answers
-- 🧠 **Hybrid Retrieval** — Combines vector search with reranking for accurate context
-- 🗂️ **Conversation History** — Tracks your queries within the session
-- 🖥️ **Fully Local** — Runs on your machine using Ollama (no OpenAI API needed)
+![Architecture](images/architecture.svg)
 
 ---
 
