@@ -3,6 +3,18 @@
 A powerful, locally-running AI research assistant built with **LangChain**, **Ollama**, and **Streamlit**. It combines Retrieval-Augmented Generation (RAG) with agentic tool use — letting you query your own documents, summarize them, and search the web, all from a sleek dark-themed UI.
 
 ---
+## 📸 Screenshots
+ 
+### 🏠 Home Page
+![Home Page](images/home%20page..png)
+ 
+### 📄 Document Summarization
+![Document Summarising](images/document%20summarising.png)
+ 
+### 🌐 Web Search
+![Web Search](images/web%20search.png)
+
+---
 
 ## ✨ Features
 
