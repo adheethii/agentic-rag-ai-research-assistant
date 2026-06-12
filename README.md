@@ -6,7 +6,10 @@
 ![STREAMLIT](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)
 ![Status](https://img.shields.io/badge/STATUS-COMPLETED-brightgreen?style=flat)
       
-A powerful, locally-running AI research assistant built with **LangChain**, **Ollama**, and **Streamlit**. It combines Retrieval-Augmented Generation (RAG) with agentic tool use — letting you query your own documents, summarize them, and search the web, all from a sleek dark-themed UI.
+Built a locally-running agentic AI research assistant that combines 
+Retrieval-Augmented Generation (RAG) with tool-use agents — enabling 
+document Q&A, summarization, and web search entirely on your machine 
+without any OpenAI API costs.
 
 ---
 
@@ -20,21 +23,32 @@ A powerful, locally-running AI research assistant built with **LangChain**, **Ol
 - 🖥️ **Fully Local** — Runs on your machine using Ollama (no OpenAI API needed)
 
 ---
-## 📸 Screenshots
- 
-### 🏠 Home Page
-![Home Page](images/home%20page..png)
- 
-### 📄 Document Summarization
-![Document Summarising](images/document%20summarising.png)
- 
-### 🌐 Web Search
-![Web Search](images/web%20search.png)
 
----
-## 🏗️ Architecture
+## 📸 Screenshots & Architecture
 
-![Architecture](images/architecture.svg)
+<table>
+  <tr>
+    <td align="center">
+      <img src="images/home%20page..png" width="320"/><br>
+      <b>🏠 Home Page</b>
+    </td>
+    <td align="center">
+      <img src="images/document%20summarising.png" width="320"/><br>
+      <b>📄 Document Summarization</b>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center">
+      <img src="images/web%20search.png" width="320"/><br>
+      <b>🌐 Web Search</b>
+    </td>
+    <td align="center">
+      <img src="images/architecture.svg" width="320"/><br>
+      <b>🏗️ Architecture</b>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -82,7 +96,7 @@ agentic_rag_ai_research_assistant/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/agentic_rag_ai_research_assistant.git
+git clone https://github.com/adheethii/agentic_rag_ai_research_assistant.git
 cd agentic_rag_ai_research_assistant
 ```
 
