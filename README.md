@@ -1,5 +1,10 @@
 # 🤖 Agentic RAG AI Research Assistant
 
+![LANG CHAIN](https://img.shields.io/badge/LangChain-000000?style=flat&logo=chainlink&logoColor=white)
+![OLLAMA](https://img.shields.io/badge/Ollama-grey?style=flat)
+![FAISS](https://img.shields.io/badge/FAISS-blue?style=flat)
+![STREAMLIT](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)
+      
 A powerful, locally-running AI research assistant built with **LangChain**, **Ollama**, and **Streamlit**. It combines Retrieval-Augmented Generation (RAG) with agentic tool use — letting you query your own documents, summarize them, and search the web, all from a sleek dark-themed UI.
 
 ---
