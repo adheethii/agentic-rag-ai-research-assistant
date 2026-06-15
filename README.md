@@ -1,15 +1,33 @@
 # 🤖 Agentic RAG AI Research Assistant
 
-![LANG CHAIN](https://img.shields.io/badge/LangChain-000000?style=flat&logo=chainlink&logoColor=white)
-![OLLAMA](https://img.shields.io/badge/Ollama-grey?style=flat)
+![LangChain](https://img.shields.io/badge/LangChain-000000?style=flat&logo=chainlink&logoColor=white)
+![Ollama](https://img.shields.io/badge/Ollama-grey?style=flat)
 ![FAISS](https://img.shields.io/badge/FAISS-blue?style=flat)
-![STREAMLIT](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)
-![Status](https://img.shields.io/badge/STATUS-COMPLETED-brightgreen?style=flat)
-      
-Built a locally-running agentic AI research assistant that combines 
-Retrieval-Augmented Generation (RAG) with tool-use agents — enabling 
-document Q&A, summarization, and web search entirely on your machine 
-without any OpenAI API costs.
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=flat)
+![Local](https://img.shields.io/badge/Runs-100%25%20Local-purple?style=flat)
+
+> **A fully local AI research assistant that reads your documents, answers questions, summarizes content, and searches the web — all without sending your data to any external API.**
+
+---
+
+## 🎯 Why I Built This
+
+Most RAG demos rely on paid APIs like OpenAI — making them expensive and privacy-unfriendly. I wanted to build a **production-grade RAG system that runs entirely on your own machine** using open-source LLMs via Ollama, with no API costs and no data leaving your device.
+
+This project combines agentic tool use, hybrid retrieval, and a clean Streamlit UI into one complete system.
+
+---
+
+## ⚡ What Makes This Different
+
+| Feature | Basic RAG Demo | This Project |
+|---------|---------------|--------------|
+| LLM | OpenAI API (paid) | Ollama (100% local, free) |
+| Retrieval | Simple vector search | Hybrid search + reranking |
+| Tools | Q&A only | Q&A + Summarization + Web Search |
+| Privacy | Data sent to cloud | Everything stays on your machine |
+| Architecture | Single chain | Agentic — LLM decides which tool to use |
 
 ---
 
@@ -37,7 +55,6 @@ without any OpenAI API costs.
       <b>📄 Document Summarization</b>
     </td>
   </tr>
-
   <tr>
     <td align="center">
       <img src="images/web%20search.png" width="320"/><br>
@@ -45,10 +62,93 @@ without any OpenAI API costs.
     </td>
     <td align="center">
       <img src="images/architecture.svg" width="320"/><br>
-      <b>🏗️ Architecture</b>
+      <b>🏗️ System Architecture</b>
     </td>
   </tr>
 </table>
+
+---
+
+## 🏗️ System Architecture
+
+```
+User Query
+    ↓
+Streamlit UI (app.py)
+    ↓
+Agentic RAG Pipeline (rag_agent.py)
+    ↓
+LangChain Agent — decides which tool to use
+    ├── 📄 Document Tool → Hybrid Retriever → FAISS + Reranker → LLM
+    ├── 📑 Summarizer Tool → PDF Loader → Summarizer → LLM  
+    └── 🌐 Web Search Tool → Search API → LLM
+    ↓
+Final Answer
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Component | Technology |
+|-----------|-----------|
+| LLM | Ollama (`llama3.2:1b`) — runs locally |
+| Framework | LangChain |
+| Vector Store | FAISS |
+| Embeddings | LangChain Ollama Embeddings |
+| Retrieval | Hybrid search + reranking |
+| Frontend | Streamlit |
+| PDF Parsing | PyPDFLoader |
+| Text Splitting | RecursiveCharacterTextSplitter |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/adheethii/agentic-rag-ai-research-assistant.git
+cd agentic-rag-ai-research-assistant
+```
+
+### 2. Create a Virtual Environment
+
+```bash
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Install and Run Ollama
+
+Download Ollama from [https://ollama.com](https://ollama.com) and pull the model:
+
+```bash
+ollama pull llama3.2:1b
+```
+
+### 5. Build the Vector Store
+
+Place your PDF files in `data/documents/`, then run:
+
+```bash
+python create_vector_db.py
+```
+
+### 6. Launch the App
+
+```bash
+streamlit run ui/app.py
+```
 
 ---
 
@@ -74,7 +174,7 @@ agentic_rag_ai_research_assistant/
 │   └── vector_store.py     # Vector store load/save
 │
 ├── tools/
-│   ├── calculator.py       # Calculator tool for the agent
+│   ├── calculator.py       # Calculator tool
 │   ├── sql_tool.py         # SQL query tool
 │   └── web_search.py       # Web search tool
 │
@@ -83,74 +183,11 @@ agentic_rag_ai_research_assistant/
 │
 ├── utils/
 │   ├── pdf_loader.py       # PDF loading and chunking
-│   └── summarizer.py       # Document summarization helper
+│   └── summarizer.py       # Summarization helper
 │
-├── create_vector_db.py     # Script to build the vector store
+├── create_vector_db.py     # Script to build vector store
 └── requirements.txt        # Python dependencies
 ```
-
----
-
-## 🚀 Getting Started
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/adheethii/agentic_rag_ai_research_assistant.git
-cd agentic_rag_ai_research_assistant
-```
-
-### 2. Create a Virtual Environment
-
-```bash
-python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# macOS/Linux
-source .venv/bin/activate
-```
-
-### 3. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Install and Run Ollama
-
-Download Ollama from [https://ollama.com](https://ollama.com) and pull the required model:
-
-```bash
-ollama pull llama3.2:1b
-```
-
-### 5. Build the Vector Store
-
-Place your PDF files in `data/documents/`, then run:
-
-```bash
-python create_vector_db.py
-```
-
-### 6. Launch the App
-
-```bash
-streamlit run ui/app.py
-```
-
----
-
-## 🛠️ Tech Stack
-
-| Component | Technology |
-|-----------|-----------|
-| LLM | Ollama (`llama3.2:1b`) |
-| Framework | LangChain |
-| Vector Store | FAISS |
-| Embeddings | LangChain Ollama Embeddings |
-| Frontend | Streamlit |
-| PDF Parsing | PyPDFLoader |
-| Text Splitting | RecursiveCharacterTextSplitter |
 
 ---
 
