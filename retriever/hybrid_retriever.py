@@ -25,4 +25,23 @@ class HybridRetriever:
 
         keyword_docs = [self.docs[i] for i in top_bm25]
 
-        return vector_results + keyword_docs
+        combined = vector_results + keyword_docs
+
+        seen = set()
+        unique_docs = []
+
+        for doc in combined:
+            doc_id = (
+              doc.metadata.get("source", "") +
+              str(doc.metadata.get("page", "")) +
+              doc.page_content
+)
+
+            if doc_id not in seen:
+             seen.add(doc_id)
+             unique_docs.append(doc)
+
+        print("Before:", len(combined))
+        print("After:", len(unique_docs))
+
+        return unique_docs

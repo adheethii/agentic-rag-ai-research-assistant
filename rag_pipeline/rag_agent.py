@@ -10,18 +10,32 @@ llm = ChatOllama(
     temperature=0.3
 )
 
-# Load vector database
-vector_db = load_vector_store()
-
 
 def ask_agent(query):
 
-    docs_with_scores = vector_db.similarity_search_with_score(query, k=5)
+    print("Reloading vector database...")
+
+    vector_db = load_vector_store()
+
+    docs_with_scores = vector_db.similarity_search_with_score(
+        query,
+        k=5
+    )
 
     docs = []
     scores = []
 
     for doc, score in docs_with_scores:
+
+        print(
+            "Retrieved:",
+            os.path.basename(
+                doc.metadata.get("source", "Unknown")
+            ),
+            "Score:",
+            score
+        )
+
         docs.append(doc)
         scores.append(score)
 

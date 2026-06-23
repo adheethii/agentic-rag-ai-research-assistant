@@ -8,6 +8,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from rag_pipeline.rag_agent import ask_agent
 from retriever.vector_store import load_vector_store
 from langchain_ollama import ChatOllama
+from utils.pdf_loader import load_documents
+from retriever.vector_store import create_vector_store
 
 st.set_page_config(page_title="Hybrid RAG AI Assistant")
 
@@ -182,7 +184,13 @@ if uploaded_file:
 
     st.session_state.last_uploaded = uploaded_file.name
 
-    st.sidebar.success("Uploaded successfully!")
+    with st.spinner("Processing document..."):
+
+        docs = load_documents(save_path)
+
+        create_vector_store(docs)
+
+    st.sidebar.success("Uploaded and indexed successfully!")
 st.sidebar.write("📌 Your Documents")
 
 docs_folder = "data/documents"

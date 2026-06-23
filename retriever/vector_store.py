@@ -1,7 +1,13 @@
 from langchain_community.vectorstores import FAISS
 from embeddings.embedding_model import load_embedding
 
+import shutil
+import os
+
 def create_vector_store(docs):
+
+    if os.path.exists("data/vector_store"):
+        shutil.rmtree("data/vector_store")
 
     embeddings = load_embedding()
 
